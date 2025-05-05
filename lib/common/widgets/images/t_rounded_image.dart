@@ -5,16 +5,16 @@ import 'package:t_store_client/utils/constants/sizes.dart';
 class TRoundedImage extends StatelessWidget {
   const TRoundedImage({
     super.key,
+    this.border,
+    this.padding,
+    this.onPressed,
     this.width,
     this.height,
-    required this.imageUrl,
     this.applyImageRadius = false,
-    this.border,
+    required this.imageUrl,
     this.backgroundColor = TColors.light,
     this.fit = BoxFit.contain,
-    this.padding,
     this.isNetWorkImage = false,
-    this.onPressed,
     this.borderRadius = TSizes.md,
   });
 

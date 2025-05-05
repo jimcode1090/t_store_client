@@ -1,15 +1,14 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:t_store_client/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:t_store_client/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:t_store_client/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:t_store_client/common/widgets/images/t_rounded_image.dart';
+import 'package:t_store_client/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:t_store_client/common/widgets/texts/section_heading.dart';
-import 'package:t_store_client/features/authentication/screens/home/widgets/home_appbar.dart';
+import 'package:t_store_client/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:t_store_client/utils/constants/image_strings.dart';
 import 'package:t_store_client/utils/constants/sizes.dart';
 
 import 'widgets/home_categories.dart';
+import 'widgets/promo_slider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -59,25 +58,15 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                  CarouselSlider(
-                    options: CarouselOptions(viewportFraction: 0.8),
-                    items: [
-                      TRoundedImage(imageUrl: TImages.promoBanner1),
-                      TRoundedImage(imageUrl: TImages.promoBanner1),
+                  TPromoSlider(
+                    banners: [
+                      TImages.promoBanner1,
+                      TImages.promoBanner2,
+                      TImages.promoBanner3,
                     ],
                   ),
-                  const SizedBox(height: TSizes.spaceBtwItems),
-                  Row(
-                    children: [
-                      for (int i = 0; i < 3; i++)
-                        TCircularContainer(
-                          width: 20,
-                          height: 4,
-                          margin: EdgeInsets.only(right: 10),
-                          backgroundColor: Colors.grey,
-                        ),
-                    ],
-                  ),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  TProductCardVertical(),
                 ],
               ),
             ),
